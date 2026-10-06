@@ -6,6 +6,7 @@ class Database {
     private $db_name = 'pharmacy_store';
     private $username = 'root';
     private $password = '';
+    private $port = '3306';
     private $conn;
 
     public function __construct() {
@@ -31,6 +32,7 @@ class Database {
         $this->db_name = getenv('DB_NAME') ?: $this->db_name;
         $this->username = getenv('DB_USER') ?: $this->username;
         $this->password = getenv('DB_PASSWORD') !== false ? getenv('DB_PASSWORD') : $this->password;
+        $this->port = getenv('DB_PORT') ?: '3306';
     }
 
     public function getConnection() {
@@ -38,7 +40,7 @@ class Database {
 
         try {
             $this->conn = new PDO(
-                "mysql:host=" . $this->host . ";dbname=" . $this->db_name,
+                "mysql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db_name,
                 $this->username,
                 $this->password
             );
