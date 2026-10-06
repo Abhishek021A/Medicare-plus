@@ -1,0 +1,530 @@
+/* ============================================================
+   MEDICARE PLUS — CLASSY & MODERN PROMOTIONAL BANNER
+   ============================================================ */
+
+:root {
+  --pb-teal-dark: #032b26;
+  --pb-teal-mid: #064e46;
+  --pb-teal-light: #097368;
+  --pb-mint-bright: #38d9a9;
+  --pb-mint-soft: #a7f3d0;
+  --pb-gold-accent: #f59e0b;
+  --pb-glass-bg: rgba(255, 255, 255, 0.08);
+  --pb-glass-border: rgba(255, 255, 255, 0.16);
+  --pb-shadow: 0 24px 64px rgba(3, 43, 38, 0.28), 0 4px 16px rgba(0, 0, 0, 0.06);
+  --pb-easing: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Outer Section */
+.classy-promo-section {
+  position: relative;
+  width: 100%;
+  padding: 50px 0;
+  background-color: var(--background, #f8fafc);
+  overflow: hidden;
+}
+
+/* Ambient Background Mesh */
+.promo-ambient-mesh {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.mesh-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  animation: meshFloat 10s ease-in-out infinite alternate;
+}
+
+.mesh-glow-1 {
+  width: 450px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(56, 217, 169, 0.25) 0%, transparent 70%);
+  top: 10%;
+  left: 5%;
+  animation-duration: 9s;
+}
+
+.mesh-glow-2 {
+  width: 480px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(9, 115, 104, 0.22) 0%, transparent 70%);
+  bottom: 5%;
+  right: 8%;
+  animation-duration: 12s;
+}
+
+.floating-cross {
+  position: absolute;
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--pb-teal-light);
+  opacity: 0.14;
+  user-select: none;
+  animation: crossFloat 8s ease-in-out infinite alternate;
+}
+
+.floating-cross-1 {
+  top: 12%;
+  right: 12%;
+  animation-duration: 7s;
+}
+
+.floating-cross-2 {
+  bottom: 14%;
+  left: 8%;
+  font-size: 2.8rem;
+  animation-duration: 9s;
+}
+
+@keyframes meshFloat {
+  0% { transform: translateY(0px) scale(1); }
+  100% { transform: translateY(-18px) scale(1.06); }
+}
+
+@keyframes crossFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-14px) rotate(10deg); }
+}
+
+/* Main Banner Card */
+.classy-promo-card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  background: linear-gradient(135deg, var(--pb-teal-dark) 0%, var(--pb-teal-mid) 55%, var(--pb-teal-light) 100%);
+  border-radius: 28px;
+  border: 1px solid var(--pb-glass-border);
+  box-shadow: var(--pb-shadow);
+  padding: 48px 56px;
+  gap: 40px;
+  overflow: hidden;
+  transition: transform 450ms var(--pb-easing), box-shadow 450ms var(--pb-easing), border-color 350ms ease;
+  animation: cardEntrance 600ms var(--pb-easing) forwards;
+}
+
+@keyframes cardEntrance {
+  0% {
+    opacity: 0.94;
+    transform: translateY(6px) scale(0.995);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.classy-promo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 32px 80px rgba(3, 43, 38, 0.35), 0 6px 20px rgba(0, 0, 0, 0.08);
+  border-color: rgba(56, 217, 169, 0.35);
+}
+
+/* Shimmer Light Sweep on Hover */
+.classy-shine-sweep {
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 15%,
+    rgba(255, 255, 255, 0.16) 50%,
+    transparent 85%
+  );
+  transform: skewX(-22deg);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.classy-promo-card:hover .classy-shine-sweep {
+  animation: classyShine 1.35s var(--pb-easing) forwards;
+}
+
+@keyframes classyShine {
+  0% { left: -120%; }
+  100% { left: 140%; }
+}
+
+/* Left Pane Content */
+.promo-left-pane {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+/* Pill Tag */
+.promo-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(56, 217, 169, 0.32);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: var(--pb-mint-soft);
+  margin-bottom: 20px;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--pb-mint-bright);
+  box-shadow: 0 0 10px var(--pb-mint-bright);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.tag-sparkle {
+  color: var(--pb-mint-bright);
+}
+
+/* Headline */
+.promo-headline {
+  font-size: clamp(2.2rem, 3.4vw, 3.3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.headline-highlight {
+  display: block;
+  background: linear-gradient(90deg, #38d9a9 0%, #a7f3d0 60%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(56, 217, 169, 0.25);
+}
+
+/* Subtitle */
+.promo-subtext {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  max-width: 520px;
+  margin-bottom: 28px;
+}
+
+/* Action Row (CTA + Coupon) */
+.promo-action-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.btn-classy-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf9 100%);
+  color: var(--pb-teal-dark);
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.98rem;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.06);
+  transition: transform 300ms var(--pb-easing), box-shadow 300ms var(--pb-easing), background 300ms ease;
+}
+
+.btn-classy-primary:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(56, 217, 169, 0.35), 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: var(--pb-teal-mid);
+}
+
+.btn-arrow-icon {
+  transition: transform 300ms var(--pb-easing);
+}
+
+.btn-classy-primary:hover .btn-arrow-icon {
+  transform: translateX(4px);
+}
+
+/* Coupon Badge */
+.promo-coupon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px dashed rgba(56, 217, 169, 0.45);
+  backdrop-filter: blur(8px);
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.coupon-icon {
+  color: var(--pb-mint-bright);
+}
+
+.coupon-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.5px;
+}
+
+.coupon-code {
+  color: var(--pb-mint-bright);
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* Perks Bar */
+.promo-perks-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.perk-capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 500;
+  transition: background 250ms ease, transform 250ms ease;
+}
+
+.perk-capsule:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.perk-icon {
+  color: var(--pb-mint-bright);
+  flex-shrink: 0;
+}
+
+/* Right Pane: Product Stage */
+.promo-right-pane {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.product-stage-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  outline: none;
+}
+
+.product-stage-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.product-stage-image {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 600ms var(--pb-easing);
+  will-change: transform;
+}
+
+.classy-promo-card:hover .product-stage-image {
+  transform: scale(1.02);
+}
+
+/* Floating Glass Badges */
+.floating-badge {
+  position: absolute;
+  background: rgba(4, 43, 38, 0.82);
+  border: 1px solid rgba(56, 217, 169, 0.35);
+  backdrop-filter: blur(12px);
+  padding: 8px 14px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 3;
+  animation: badgeFloat 6s ease-in-out infinite alternate;
+}
+
+.badge-top {
+  top: 14px;
+  left: 14px;
+  animation-duration: 5.5s;
+}
+
+.badge-bottom {
+  bottom: 14px;
+  right: 14px;
+  animation-duration: 6.5s;
+}
+
+.badge-stars {
+  color: #fbbf24;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.badge-chip {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 7px;
+  border-radius: 6px;
+}
+
+@keyframes badgeFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-6px); }
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ============================================================ */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .classy-promo-card {
+    grid-template-columns: 1fr;
+    padding: 36px 32px;
+    gap: 32px;
+    border-radius: 24px;
+  }
+
+  .promo-subtext {
+    max-width: 100%;
+  }
+
+  .product-stage-image {
+    height: 300px;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .classy-promo-section {
+    padding: 30px 0;
+  }
+
+  .classy-promo-card {
+    padding: 28px 20px;
+    border-radius: 20px;
+    gap: 24px;
+  }
+
+  .promo-headline {
+    font-size: 1.95rem;
+  }
+
+  .promo-subtext {
+    font-size: 0.94rem;
+    margin-bottom: 22px;
+  }
+
+  .btn-classy-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+  }
+
+  .promo-coupon-badge {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .product-stage-image {
+    height: 220px;
+  }
+
+  .floating-badge {
+    padding: 6px 10px;
+    font-size: 0.72rem;
+  }
+
+  .floating-cross {
+    display: none;
+  }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .promo-headline {
+    font-size: 1.7rem;
+  }
+
+  .promo-perks-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .perk-capsule {
+    justify-content: center;
+    font-size: 0.72rem;
+    padding: 6px 8px;
+  }
+
+  .badge-top {
+    top: 8px;
+    left: 8px;
+  }
+
+  .badge-bottom {
+    bottom: 8px;
+    right: 8px;
+  }
+}
+
+/* Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .classy-promo-card,
+  .classy-shine-sweep,
+  .mesh-glow,
+  .floating-cross,
+  .pulse-dot,
+  .floating-badge,
+  .product-stage-image {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

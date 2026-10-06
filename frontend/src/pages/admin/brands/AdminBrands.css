@@ -1,0 +1,230 @@
+/* frontend/src/pages/admin/brands/AdminBrands.css */
+
+/* Smooth Animations */
+.brands-table-row {
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.brands-table-row:hover {
+  background-color: #F6F9F8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.brand-logo-preview {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.brand-logo-preview-large {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 8px;
+  background-color: #F6F9F8;
+  border: 1px dashed #087F73;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+/* Upload Dropzone */
+.logo-upload-dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 30px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  background-color: #fafafa;
+}
+
+.logo-upload-dropzone:hover, .logo-upload-dropzone.drag-active {
+  border-color: #087F73;
+  background-color: #F6F9F8;
+}
+
+.logo-upload-icon {
+  font-size: 32px;
+  color: #087F73;
+  margin-bottom: 10px;
+}
+
+/* Drawer Overrides */
+.brand-drawer-overlay {
+  animation: fadeIn 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.brand-drawer-content {
+  animation: slideInRight 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .3s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: #087F73;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(20px);
+}
+
+/* Badge Styles */
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-active {
+  background-color: #e6f4ea;
+  color: #137333;
+}
+
+.badge-inactive {
+  background-color: #fce8e6;
+  color: #c5221f;
+}
+
+.badge-featured {
+  background-color: #fef7e0;
+  color: #b06000;
+  border: 1px solid #fbbc04;
+}
+
+/* Search Bar */
+.search-input-wrapper {
+  position: relative;
+  width: 300px;
+}
+
+.search-input-wrapper i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+.search-input-wrapper input {
+  width: 100%;
+  padding: 10px 10px 10px 35px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s;
+}
+
+.search-input-wrapper input:focus {
+  outline: none;
+  border-color: #087F73;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+/* Responsive Table -> Cards for Mobile */
+@media (max-width: 768px) {
+  .brands-table thead {
+    display: none;
+  }
+  
+  .brands-table tbody, .brands-table tr, .brands-table td {
+    display: block;
+    width: 100%;
+  }
+  
+  .brands-table tr {
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+  
+  .brands-table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  
+  .brands-table td:last-child {
+    border-bottom: 0;
+  }
+  
+  .brands-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: 600;
+    color: #666;
+  }
+  
+  .search-input-wrapper {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .admin-page-header-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+}

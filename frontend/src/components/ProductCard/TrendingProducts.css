@@ -1,0 +1,45 @@
+.trending-section {
+  background-color: var(--background);
+}
+
+.trending-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0 20px 0;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  /* Hide scrollbar for a cleaner look */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.trending-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.carousel-item {
+  flex: 0 0 calc(25% - 15px); /* 4 items on desktop */
+  scroll-snap-align: start;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .carousel-item {
+    flex: 0 0 calc(33.333% - 14px); /* 3 items */
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .carousel-item {
+    flex: 0 0 calc(50% - 10px); /* 2 items */
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .carousel-item {
+    flex: 0 0 calc(85%); /* 1 item mostly visible, hint of second */
+  }
+}

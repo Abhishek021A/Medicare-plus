@@ -1,0 +1,52 @@
+:root {
+  /* Brand Colors */
+  --primary: #087F73;
+  --primary-dark: #075E57;
+  --primary-light: #E8F7F4;
+  
+  /* Accent Colors for Promotions */
+  --accent-yellow: #F5A623;
+  --accent-blue: #4A90E2;
+  --accent-green: #7ED321;
+  --accent-pink: #FF6B81;
+  --accent-purple: #9B51E0;
+
+  /* Neutrals */
+  --background: #FFFFFF;
+  --section-bg: #F7FAF9;
+  --text-main: #17201F;
+  --text-muted: #6B7774;
+  --border: #E2E8E6;
+  
+  /* Status Colors */
+  --success: #27AE60;
+  --warning: #F2994A;
+  --danger: #EB5757;
+
+  /* Typography */
+  --font-sans: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+  
+  /* UI Elements */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.06), 0 4px 10px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 15px 35px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms ease;
+  
+  /* Layout */
+  --container-max-width: 1400px;
+}

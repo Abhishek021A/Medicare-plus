@@ -1,0 +1,292 @@
+/* Hero Section */
+.hero {
+  background-color: #F7FAFC; /* Very light cool background, almost white */
+  padding: 80px 0 60px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+/* Left Content */
+.hero-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: #111;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.text-primary-dark {
+  color: #0E6D4E; /* Dark green from screenshot */
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 35px;
+  line-height: 1.6;
+}
+
+.hero-features {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.3;
+}
+
+.feature-icon {
+  color: #0E6D4E;
+  flex-shrink: 0;
+}
+
+.hero-btn {
+  background-color: #0E6D4E;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.hero-btn:hover {
+  background-color: #0A5038;
+  color: white;
+}
+
+.hero-btn .arrow {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* Right Content */
+.hero-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 500px;
+}
+
+/* Green Blob */
+.hero-blob {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background-color: #89C7AD; /* Mint green blob */
+  border-radius: 50%;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-45%, -50%);
+}
+
+.hero-main-img {
+  position: relative;
+  z-index: 2;
+  width: 85%;
+  max-width: 420px;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 200px 200px 20px 20px; /* Modern arched top */
+  box-shadow: 0 20px 40px rgba(14, 109, 78, 0.15);
+}
+
+/* Decorative Leaves */
+.hero-leaves {
+  position: absolute;
+  left: 0;
+  bottom: 10%;
+  width: 100px;
+  height: 150px;
+  z-index: 3;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 150' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,100 Q0,50 30,30 Q60,50 40,90 Z' fill='%2366B290' opacity='0.8'/%3E%3Cpath d='M60,120 Q30,70 60,50 Q90,70 70,110 Z' fill='%2350A07A' opacity='0.9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}
+
+/* Floating Card */
+.floating-prescription-card {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  padding: 25px 20px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 160px;
+}
+
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #111;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.upload-box:hover {
+  transform: translateY(-2px);
+}
+
+.upload-icon {
+  color: #0E6D4E;
+}
+
+.card-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #E2E8F0;
+  margin-bottom: 15px;
+}
+
+.card-text {
+  font-size: 0.85rem;
+  color: #555;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 50px;
+  }
+  
+  .hero-features {
+    justify-content: center;
+  }
+  
+  .hero-blob {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .floating-prescription-card {
+    right: 10%;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-features {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .floating-prescription-card {
+    display: none;
+  }
+}
+
+/* Dynamic Hero Slider Controls */
+.dynamic-hero-slider {
+  position: relative;
+}
+
+.hero-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  color: #1E293B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.hero-nav-btn:hover {
+  background: #087F73;
+  color: #FFFFFF;
+  border-color: #087F73;
+  transform: translateY(-50%) scale(1.06);
+}
+
+.hero-nav-prev {
+  left: 20px;
+}
+
+.hero-nav-next {
+  right: 20px;
+}
+
+.hero-slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  background: #CBD5E1;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.hero-dot.active {
+  width: 28px;
+  background: #087F73;
+}
+
+@media (max-width: 768px) {
+  .hero-nav-btn {
+    display: none;
+  }
+}
+

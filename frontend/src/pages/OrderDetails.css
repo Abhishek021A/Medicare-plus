@@ -1,0 +1,235 @@
+.order-details-page {
+  background-color: var(--background);
+  min-height: calc(100vh - 200px);
+}
+
+.back-link:hover {
+  color: var(--primary) !important;
+}
+
+.order-header-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.order-header-info h1 {
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 5px;
+}
+
+.order-header-status {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.expected-delivery {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Timeline Tracker */
+.order-tracker-card {
+  background-color: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 30px;
+  overflow-x: auto; /* for mobile scrolling */
+}
+
+.timeline-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  min-width: 600px; /* force width to maintain layout */
+  margin: 0 auto;
+}
+
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.timeline-icon {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  transition: all var(--transition-fast);
+  color: white;
+}
+
+.timeline-step .dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--border);
+  border-radius: 50%;
+}
+
+.timeline-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Timeline connector line */
+.timeline-line {
+  position: absolute;
+  top: 15px;
+  left: calc(50% + 15px);
+  right: calc(-50% + 15px);
+  height: 2px;
+  background-color: var(--border);
+  z-index: -1;
+}
+
+/* Completed Step */
+.timeline-step.completed .timeline-icon {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.timeline-step.completed .timeline-label {
+  color: var(--text-main);
+}
+
+.timeline-step.completed .timeline-line {
+  background-color: var(--primary);
+}
+
+/* Current Step */
+.timeline-step.current .timeline-icon {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(8, 127, 115, 0.1);
+}
+.timeline-step.current .timeline-icon .dot {
+  background-color: var(--primary);
+}
+.timeline-step.current .timeline-label {
+  color: var(--primary);
+}
+
+
+/* Grids */
+.order-layout-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.order-card {
+  background-color: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+}
+
+.order-card h3 {
+  font-size: 1.1rem;
+  color: var(--primary-dark);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 15px;
+}
+
+/* Items list */
+.order-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.order-item-row:last-child {
+  border-bottom: none;
+}
+
+.order-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.item-name-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.prescription-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: rgba(231, 76, 60, 0.1);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.order-summary-totals {
+  background-color: var(--section-bg);
+  padding: 20px;
+  border-radius: var(--radius-sm);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.summary-row:last-child {
+  margin-bottom: 0;
+}
+
+.total-row {
+  font-size: 1.1rem;
+  border-top: 1px dashed var(--border);
+  padding-top: 15px;
+  margin-top: 5px;
+}
+
+/* Helpers */
+.d-flex { display: flex; }
+.align-center { align-items: center; }
+.gap-10 { gap: 10px; }
+
+@media (max-width: 768px) {
+  .order-layout-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .order-header-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .order-header-status {
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,85 @@
+.service-features-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background-color: var(--section-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  transition: all var(--transition-normal);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-light);
+}
+
+.service-icon-wrapper {
+  background-color: white;
+  color: var(--primary);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.service-title {
+  color: var(--text-main);
+  font-size: 1rem;
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+
+.service-desc {
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Tablet: 3 columns then 2 columns */
+@media (max-width: 1024px) {
+  .service-features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Make the last two items center nicely in a 3-col grid */
+  .service-card:nth-child(4) {
+    grid-column: 1 / 2;
+  }
+  .service-card:nth-child(5) {
+    grid-column: 2 / 3;
+  }
+}
+
+/* Mobile: 2 columns */
+@media (max-width: 768px) {
+  .service-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .service-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px 10px;
+  }
+  
+  .service-card:nth-child(4), 
+  .service-card:nth-child(5) {
+    grid-column: auto;
+  }
+  
+  /* The 5th item spans full width to balance the 2-col grid */
+  .service-card:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+}

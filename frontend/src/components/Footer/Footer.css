@@ -1,0 +1,449 @@
+/* ==========================================================
+   MEDICARE PLUS — PREMIUM FOOTER & SOCIAL MEDIA ICONS
+   ========================================================== */
+
+.footer-area {
+  background-color: #101b1a; /* Dark premium healthcare tone */
+  color: #e2e8f0;
+  padding: 70px 0 28px;
+  border-top: 4px solid var(--primary, #0f766e);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Top Footer: Grid Layout --- */
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.3fr;
+  gap: 36px;
+  margin-bottom: 50px;
+}
+
+/* --- Column 1: Brand --- */
+.brand-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-bottom: 18px;
+  transition: transform 0.25s ease;
+  width: fit-content;
+}
+
+.footer-brand-logo:hover .footer-brand-icon {
+  transform: rotate(45deg) scale(1.08);
+  box-shadow: 0 6px 18px rgba(20, 184, 166, 0.45);
+}
+
+.footer-brand-icon {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+  border-radius: 10px 20px 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 14px rgba(15, 118, 110, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.footer-brand-cross {
+  color: #ffffff;
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1;
+  transform: rotate(-45deg);
+  display: block;
+}
+
+.footer-brand-text {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.footer-brand-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.footer-brand-plus {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #14b8a6; /* Vibrant Medicare Plus teal */
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.footer-desc {
+  color: #94a3b8;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  margin-bottom: 24px;
+  max-width: 320px;
+}
+
+/* --- Social Media Icons --- */
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-social-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f1f5f9;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.9;
+  transform: translateY(0);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    opacity 0.25s ease;
+  position: relative;
+}
+
+.footer-social-btn .social-icon {
+  width: 21px;
+  height: 21px;
+  transition: transform 0.25s ease;
+}
+
+.footer-social-btn:hover {
+  opacity: 1;
+  transform: translateY(-4px) scale(1.06);
+}
+
+.footer-social-btn:hover .social-icon {
+  transform: scale(1.08);
+}
+
+/* Platform-Specific Hover Colors */
+/* Instagram: Official colorful gradient */
+.footer-social-btn.social-instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  border-color: rgba(220, 39, 67, 0.6);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(220, 39, 67, 0.45);
+}
+
+/* Facebook: Official Meta blue */
+.footer-social-btn.social-facebook:hover {
+  background: #1877F2;
+  border-color: #1877F2;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(24, 119, 242, 0.45);
+}
+
+/* X (formerly Twitter): Sleek dark contrast with white border */
+.footer-social-btn.social-x:hover {
+  background: #000000;
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Accessibility: Focus visible */
+.footer-social-btn:focus-visible {
+  outline: 2px solid #14b8a6;
+  outline-offset: 3px;
+  opacity: 1;
+}
+
+/* --- Navigation Link Columns --- */
+.footer-heading {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 10px;
+  letter-spacing: -0.2px;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 32px;
+  height: 2px;
+  background: linear-gradient(90deg, #14b8a6, transparent);
+  border-radius: 2px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: #14b8a6;
+  transform: translateX(4px);
+}
+
+.footer-links a:focus-visible {
+  outline: 2px solid #14b8a6;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* --- Column 5: Contact Info --- */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #94a3b8;
+  line-height: 1.5;
+  font-size: 0.92rem;
+}
+
+.contact-icon {
+  color: #14b8a6;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.contact-link {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: #14b8a6;
+}
+
+.contact-link:focus-visible {
+  outline: 2px solid #14b8a6;
+  outline-offset: 2px;
+}
+
+/* --- Bottom Footer: Copyright & Badges --- */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.copyright {
+  color: #64748b;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.footer-badges {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.security-badges {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.badge-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  background-color: rgba(255, 255, 255, 0.04);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.badge-item svg {
+  color: #10b981; /* Green check / shield */
+}
+
+.payment-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pay-icon {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #1e293b;
+  width: 48px;
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.pay-icon.pay-text {
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: -0.3px;
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN (320px - 1440px)
+   ========================================================== */
+
+/* Large Tablet / Small Laptop */
+@media (max-width: 1100px) {
+  .footer-top {
+    grid-template-columns: 1.8fr 1fr 1fr 1fr;
+    gap: 30px;
+  }
+  .contact-col {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+  }
+  .contact-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+}
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+  .brand-col {
+    grid-column: 1 / -1;
+  }
+  .footer-desc {
+    max-width: 520px;
+  }
+  .contact-col {
+    grid-column: 1 / -1;
+  }
+  .contact-list {
+    flex-direction: column;
+    gap: 14px;
+  }
+}
+
+/* Mobile Devices (max 767px) */
+@media (max-width: 767px) {
+  .footer-area {
+    padding: 55px 0 24px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 36px;
+  }
+
+  .footer-brand-title {
+    font-size: 1.5rem;
+  }
+
+  .footer-brand-plus {
+    font-size: 1.15rem;
+  }
+
+  .footer-desc {
+    max-width: 100%;
+  }
+
+  .footer-social-links {
+    margin-top: 4px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+    padding-top: 20px;
+  }
+
+  .footer-badges {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+/* Small Mobile (320px - 425px) */
+@media (max-width: 425px) {
+  .footer-container {
+    padding: 0 16px;
+  }
+
+  .footer-social-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .footer-social-btn .social-icon {
+    width: 19px;
+    height: 19px;
+  }
+
+  .security-badges {
+    justify-content: center;
+  }
+}

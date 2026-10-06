@@ -1,0 +1,129 @@
+.faq-page {
+  background-color: var(--background);
+  min-height: calc(100vh - 200px);
+}
+
+.page-header-bg {
+  background-color: var(--section-bg);
+  padding: 60px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.max-w-600 {
+  max-width: 600px;
+}
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* Sidebar */
+.support-card {
+  background-color: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  text-align: center;
+  position: sticky;
+  top: 20px;
+}
+
+.icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background-color: rgba(8, 127, 115, 0.1);
+  border-radius: 50%;
+}
+
+.support-card h3 {
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+}
+
+/* Accordion */
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.accordion-item {
+  background-color: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.accordion-item:hover {
+  border-color: var(--primary-light);
+}
+
+.accordion-item.open {
+  border-color: var(--primary);
+  box-shadow: 0 4px 15px rgba(8, 127, 115, 0.05);
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  transition: color var(--transition-fast);
+}
+
+.accordion-item.open .accordion-header {
+  color: var(--primary);
+  background-color: rgba(8, 127, 115, 0.02);
+}
+
+.accordion-icon {
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.open .accordion-icon {
+  color: var(--primary);
+  transform: rotate(180deg);
+}
+
+/* Smooth Animation Wrapper */
+.accordion-collapse {
+  overflow: hidden;
+  /* Height is controlled via inline styles in React */
+}
+
+/* Inner body to provide padding without breaking height calculation */
+.accordion-body {
+  padding: 0 25px 25px 25px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.desktop-only { display: block; }
+.mobile-only { display: none; }
+
+/* Mobile */
+@media (max-width: 992px) {
+  .faq-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .desktop-only { display: none; }
+  .mobile-only { display: block; }
+}

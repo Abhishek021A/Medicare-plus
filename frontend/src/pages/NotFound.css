@@ -1,0 +1,122 @@
+.not-found-page {
+  background-color: var(--background);
+  min-height: calc(100vh - 300px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.not-found-content {
+  background-color: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 60px 40px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.error-code {
+  font-size: 15rem;
+  font-weight: 900;
+  color: var(--section-bg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  line-height: 1;
+  letter-spacing: -10px;
+}
+
+.error-icon-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(8, 127, 115, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(8, 127, 115, 0.2); }
+  70% { box-shadow: 0 0 0 20px rgba(8, 127, 115, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(8, 127, 115, 0); }
+}
+
+.not-found-content h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 2.5rem;
+  color: var(--primary-dark);
+}
+
+.not-found-content p {
+  position: relative;
+  z-index: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.action-buttons {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-lg {
+  padding: 16px 30px;
+  font-size: 1.05rem;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.max-w-600 {
+  max-width: 600px;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .error-code {
+    font-size: 10rem;
+  }
+  
+  .not-found-content {
+    padding: 40px 20px;
+  }
+  
+  .not-found-content h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-lg {
+    width: 100%;
+    justify-content: center;
+  }
+}

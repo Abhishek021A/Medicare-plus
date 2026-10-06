@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1050" width="100%" height="100%">
+  <rect width="800" height="1050" fill="#FFFFFF"/>
+  <rect x="25" y="25" width="750" height="1000" rx="8" fill="none" stroke="#087F73" stroke-width="3"/>
+  <rect x="35" y="35" width="730" height="980" rx="4" fill="none" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Hospital Header -->
+  <g transform="translate(60, 80)">
+    <text font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#087F73">APOLLO HOSPITALS &amp; HEALTHCARE</text>
+    <text y="30" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1E293B">Dr. Rajesh K. Mohanty, MD (Internal Medicine)</text>
+    <text y="50" font-family="Arial, sans-serif" font-size="12" fill="#64748B">Medical Council Registration No: MED-78410 | Apollo Clinic, Infocity, Bhubaneswar</text>
+    <text y="70" font-family="Arial, sans-serif" font-size="12" fill="#64748B">Phone: +91 674 230 0500 | Email: dr.mohanty@apollo.org</text>
+    <line x1="0" y1="90" x2="680" y2="90" stroke="#087F73" stroke-width="2"/>
+  </g>
+
+  <!-- Patient Details -->
+  <g transform="translate(60, 200)">
+    <rect width="680" height="85" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+    <text x="20" y="30" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1E293B">Patient: Abhishek Barik</text>
+    <text x="320" y="30" font-family="Arial, sans-serif" font-size="13" fill="#475569">Age: 28 Yrs</text>
+    <text x="480" y="30" font-family="Arial, sans-serif" font-size="13" fill="#475569">Gender: Male</text>
+    <text x="20" y="60" font-family="Arial, sans-serif" font-size="13" fill="#64748B">Date: 01 Oct 2026</text>
+    <text x="320" y="60" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#087F73">Prescription Ref: RX-1001</text>
+    <text x="480" y="60" font-family="Arial, sans-serif" font-size="13" fill="#64748B">Vitals: BP 120/80</text>
+  </g>
+
+  <!-- Rx Symbol -->
+  <g transform="translate(60, 340)">
+    <text font-family="'Times New Roman', serif" font-size="44" font-weight="bold" font-style="italic" fill="#087F73">Rx</text>
+  </g>
+
+  <!-- Medication List -->
+  <g transform="translate(90, 420)">
+    <!-- Med 1 -->
+    <text font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E293B">1. Cap. Amoxicillin 250mg</text>
+    <text x="25" y="24" font-family="Arial, sans-serif" font-size="13" fill="#475569">Dispense: 15 Capsules</text>
+    <text x="25" y="44" font-family="Arial, sans-serif" font-size="13" fill="#64748B">Sig: 1 capsule three times daily after meals for 5 days.</text>
+
+    <!-- Med 2 -->
+    <text y="90" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E293B">2. Tab. Paracetamol 650mg</text>
+    <text x="25" y="114" font-family="Arial, sans-serif" font-size="13" fill="#475569">Dispense: 10 Tablets</text>
+    <text x="25" y="134" font-family="Arial, sans-serif" font-size="13" fill="#64748B">Sig: 1 tablet SOS (as needed) for fever or body ache. Max 3/day.</text>
+
+    <!-- Med 3 -->
+    <text y="180" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1E293B">3. Tab. Vitamin C 1000mg</text>
+    <text x="25" y="204" font-family="Arial, sans-serif" font-size="13" fill="#475569">Dispense: 30 Chewable Tablets</text>
+    <text x="25" y="224" font-family="Arial, sans-serif" font-size="13" fill="#64748B">Sig: Chew 1 tablet daily with breakfast for immunity support.</text>
+  </g>
+
+  <!-- Instructions & Notes -->
+  <g transform="translate(60, 750)">
+    <line x1="0" y1="0" x2="680" y2="0" stroke="#E2E8F0" stroke-width="1.5"/>
+    <text y="30" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#475569">General Advice &amp; Instructions:</text>
+    <text y="50" font-family="Arial, sans-serif" font-size="12" fill="#64748B">• Drink plenty of fluids (minimum 2.5L/day).</text>
+    <text y="70" font-family="Arial, sans-serif" font-size="12" fill="#64748B">• Complete the antibiotic course; do not discontinue prematurely.</text>
+    <text y="90" font-family="Arial, sans-serif" font-size="12" fill="#64748B">• Follow up after 5 days if symptoms persist.</text>
+  </g>
+
+  <!-- Doctor Stamp and Signature -->
+  <g transform="translate(480, 890)">
+    <text font-family="'Brush Script MT', cursive, sans-serif" font-size="32" fill="#06635A">R. K. Mohanty</text>
+    <rect x="0" y="20" width="220" height="60" rx="4" fill="none" stroke="#087F73" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="15" y="42" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#087F73">DR. RAJESH K. MOHANTY</text>
+    <text x="15" y="58" font-family="Arial, sans-serif" font-size="10" fill="#64748B">Reg No: MED-78410 | APOLLO</text>
+    <text x="15" y="72" font-family="Arial, sans-serif" font-size="9" fill="#94A3B8">CLINICAL STAMP VERIFIED</text>
+  </g>
+</svg>

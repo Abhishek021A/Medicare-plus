@@ -1,0 +1,50 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #F6F9F8; /* Premium very light gray/green */
+  position: relative;
+}
+
+.admin-sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 95;
+}
+
+.admin-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 260px; /* Default sidebar width */
+  min-width: 0; /* Fix flexbox text truncation issues */
+  transition: margin-left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.admin-layout.sidebar-collapsed .admin-main {
+  margin-left: 76px;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+@media (max-width: 992px) {
+  .admin-main {
+    margin-left: 0;
+  }
+  
+  .admin-content {
+    padding: 15px;
+  }
+  
+  .admin-sidebar-overlay {
+    display: block;
+  }
+}

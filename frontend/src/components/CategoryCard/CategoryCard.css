@@ -1,0 +1,100 @@
+.category-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-light);
+}
+
+.category-image-container {
+  height: 120px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--section-bg);
+}
+
+.category-image-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(8,127,115,0.05) 0%, rgba(8,127,115,0.15) 100%);
+  transition: transform var(--transition-slow);
+}
+
+.category-card:hover .category-image-bg {
+  transform: scale(1.1);
+}
+
+.category-icon-wrapper {
+  position: relative;
+  z-index: 2;
+  color: var(--primary-dark);
+  background: white;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal);
+}
+
+.category-card:hover .category-icon-wrapper {
+  transform: scale(1.1);
+  color: var(--primary);
+}
+
+.category-content {
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  background: white;
+}
+
+.category-name {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  margin-bottom: 4px;
+  font-weight: 700;
+  transition: color var(--transition-fast);
+}
+
+.category-card:hover .category-name {
+  color: var(--primary);
+}
+
+.category-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.category-arrow {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  color: var(--primary);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all var(--transition-normal);
+}
+
+.category-card:hover .category-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}

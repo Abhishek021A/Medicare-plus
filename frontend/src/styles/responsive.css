@@ -1,0 +1,97 @@
+/* 
+ * 47. RESPONSIVE BREAKPOINTS
+ * Desktop: 1440px+
+ * Laptop: 1200px
+ * Tablet: 768px
+ * Mobile: 480px
+ * Small mobile: 360px
+ */
+
+ /* NO horizontal scrolling */
+ html, body {
+   overflow-x: hidden;
+   width: 100%;
+ }
+ 
+ /* 
+  * DESKTOP (1440px+) & LAPTOP (1200px+)
+  * Product cards: 4
+  * Category cards: 6
+  */
+ @media (min-width: 1200px) {
+   /* Products: Desktop 4 */
+   .products-grid,
+   .shop-products-grid,
+   .related-grid {
+     grid-template-columns: repeat(4, 1fr) !important;
+   }
+ 
+   /* Categories: Desktop 6 */
+   .categories-large-grid,
+   .category-grid {
+     grid-template-columns: repeat(6, 1fr) !important;
+   }
+ }
+ 
+ /* 
+  * TABLET (768px - 1199px)
+  * Product cards: 3
+  * Category cards: 4
+  */
+ @media (max-width: 1199px) and (min-width: 768px) {
+   /* Products: Tablet 3 */
+   .products-grid,
+   .shop-products-grid,
+   .related-grid {
+     grid-template-columns: repeat(3, 1fr) !important;
+   }
+ 
+   /* Categories: Tablet 4 */
+   .categories-large-grid,
+   .category-grid {
+     grid-template-columns: repeat(4, 1fr) !important;
+   }
+ }
+ 
+ /* 
+  * MOBILE (480px - 767px)
+  * Product cards: 2
+  * Category cards: 2
+  */
+ @media (max-width: 767px) and (min-width: 480px) {
+   /* Products: Mobile 2 */
+   .products-grid,
+   .shop-products-grid,
+   .related-grid {
+     grid-template-columns: repeat(2, 1fr) !important;
+   }
+ 
+   /* Categories: Mobile 2 */
+   .categories-large-grid,
+   .category-grid {
+     grid-template-columns: repeat(2, 1fr) !important;
+   }
+ }
+ 
+ /* 
+  * SMALL MOBILE (360px - 479px)
+  * Product cards: 2
+  * Category cards: 2
+  */
+ @media (max-width: 479px) {
+   /* Products: Mobile 2 */
+   .products-grid,
+   .shop-products-grid,
+   .related-grid {
+     grid-template-columns: repeat(2, 1fr) !important;
+     gap: 10px !important; /* Slightly smaller gap for small screens to fit 2 cards */
+   }
+ 
+   /* Categories: Mobile 2 */
+   .categories-large-grid,
+   .category-grid {
+     grid-template-columns: repeat(2, 1fr) !important;
+     gap: 10px !important;
+   }
+ }
+ 

@@ -1,0 +1,26 @@
+.wishlist-page {
+  background-color: var(--background);
+  min-height: calc(100vh - 200px);
+}
+
+.wishlist-empty-state {
+  background-color: white;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 80px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.max-w-600 {
+  max-width: 600px;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}

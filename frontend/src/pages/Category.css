@@ -1,0 +1,84 @@
+.category-banner {
+  padding: 60px 0;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Base Theme overrides for breadcrumbs inside colored banner */
+.category-banner .breadcrumbs a,
+.category-banner .breadcrumbs span,
+.category-banner .breadcrumbs svg {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.category-banner .breadcrumbs a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.category-banner .page-title {
+  color: white;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.category-desc {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.15rem;
+  max-width: 600px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+}
+
+/* Category Themes */
+.theme-yellow {
+  background: linear-gradient(135deg, #f5b041 0%, #f39c12 100%);
+}
+
+.theme-teal {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+
+.theme-blue {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+}
+
+.theme-green {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+}
+
+.theme-purple {
+  background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+}
+
+/* Background Pattern Overlay */
+.category-banner::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 300px;
+  height: 300px;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10.5%);
+  background-size: 20px 20px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .category-banner {
+    padding: 40px 0;
+  }
+  
+  .category-banner .page-title {
+    font-size: 2rem;
+  }
+  
+  .category-desc {
+    font-size: 1rem;
+  }
+}
