@@ -148,8 +148,8 @@ export default function Checkout() {
 
   return (
     <div className="checkout-page section-padding">
-      <div className="container">
-        <h1 className="page-title mb-40">Checkout</h1>
+      <div className="checkout-container">
+        <h1 className="checkout-title">Checkout</h1>
 
         <div className="checkout-layout">
           
@@ -209,8 +209,10 @@ export default function Checkout() {
                       <input type="text" name="landmark" value={formData.landmark} onChange={handleInputChange} />
                     </div>
 
-                    <div className="step-actions">
-                      <button type="submit" className="btn-primary">CONTINUE TO {requiresPrescription ? 'PRESCRIPTION' : 'PAYMENT'}</button>
+                    <div className="step-actions flex-between">
+                      <button type="submit" className="checkout-btn btn-primary">
+                        CONTINUE TO {requiresPrescription ? 'PRESCRIPTION' : 'PAYMENT'}
+                      </button>
                     </div>
                   </form>
                 </div>
@@ -264,8 +266,8 @@ export default function Checkout() {
                     </div>
 
                     <div className="step-actions flex-between">
-                      <button className="btn-outline" onClick={() => setStep(1)}>BACK</button>
-                      <button className="btn-primary" onClick={handlePrescriptionSubmit} disabled={!file}>CONTINUE TO PAYMENT</button>
+                      <button className="checkout-btn checkout-btn-outline" onClick={() => setStep(1)}>BACK</button>
+                      <button className="checkout-btn btn-primary" onClick={handlePrescriptionSubmit} disabled={!file}>CONTINUE TO PAYMENT</button>
                     </div>
                   </div>
                 )}
@@ -341,12 +343,11 @@ export default function Checkout() {
                   )}
 
                   <div className="step-actions flex-between mt-20">
-                    <button className="btn-outline" onClick={() => setStep(requiresPrescription ? 2 : 1)}>BACK</button>
+                    <button className="checkout-btn checkout-btn-outline" onClick={() => setStep(requiresPrescription ? 2 : 1)}>BACK</button>
                     <button 
-                      className="btn-primary" 
+                      className="checkout-btn btn-primary" 
                       onClick={handlePlaceOrder}
                       disabled={isSubmittingOrder}
-                      style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                     >
                       {isSubmittingOrder && <Loader2 size={16} style={{ animation: 'spin 1s linear infinite' }} />}
                       <span>{isSubmittingOrder ? 'Processing Order...' : `PLACE ORDER (₹${finalTotal.toFixed(2)})`}</span>
@@ -361,46 +362,46 @@ export default function Checkout() {
           {/* RIGHT: Order Summary */}
           <div className="checkout-summary-column">
             <div className="order-summary-box">
-              <h3>Order Details</h3>
+              <h3 className="order-details-title">Order Details</h3>
               
               <div className="checkout-items-list">
                 {cartItems.map(item => (
-                  <div key={item.id} className="checkout-item-row">
+                  <div key={item.id} className="order-item">
                     <div className="checkout-item-info">
-                      <span className="checkout-item-name">{item.name}</span>
-                      <span className="checkout-item-qty">Qty: {item.quantity}</span>
+                      <span className="product-name">{item.name}</span>
+                      <span className="product-qty">Qty: {item.quantity}</span>
                     </div>
-                    <span className="checkout-item-price">₹{(item.price * item.quantity).toFixed(2)}</span>
+                    <span className="product-price">₹{(item.price * item.quantity).toFixed(2)}</span>
                   </div>
                 ))}
               </div>
 
               <div className="summary-row">
                 <span>Subtotal</span>
-                <span>₹{subtotal.toFixed(2)}</span>
+                <strong>₹{subtotal.toFixed(2)}</strong>
               </div>
               {discountAmount > 0 && (
-                <div className="summary-row" style={{ color: 'var(--primary-dark)', fontWeight: 600 }}>
+                <div className="summary-row" style={{ color: 'var(--primary-dark)' }}>
                   <span>Coupon Discount ({appliedCoupon?.code})</span>
-                  <span>-₹{discountAmount.toFixed(2)}</span>
+                  <strong>-₹{discountAmount.toFixed(2)}</strong>
                 </div>
               )}
               <div className="summary-row">
                 <span>Delivery</span>
-                <span>{deliveryFee === 0 ? <span className="text-success">FREE</span> : `₹${deliveryFee.toFixed(2)}`}</span>
+                <strong>{deliveryFee === 0 ? <span className="text-success">FREE</span> : `₹${deliveryFee.toFixed(2)}`}</strong>
               </div>
               {appliedCodFee > 0 && (
                 <div className="summary-row">
                   <span>COD Handling Fee</span>
-                  <span>₹{appliedCodFee.toFixed(2)}</span>
+                  <strong>₹{appliedCodFee.toFixed(2)}</strong>
                 </div>
               )}
               
               {currentLocation !== 'Select Location' && (
-                <div style={{ padding: '10px 0', fontSize: '0.85rem', color: 'var(--text-muted)', display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                <div className="delivery-zone">
                   <MapPin size={16} color="var(--primary-dark)" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <span>
-                    Selected Zone: <strong style={{ color: 'var(--text-main)' }}>{currentLocation}</strong>
+                    Selected Zone: <strong>{currentLocation}</strong>
                   </span>
                 </div>
               )}
@@ -409,7 +410,7 @@ export default function Checkout() {
               
               <div className="summary-row total-row">
                 <span>Total</span>
-                <span>₹{finalTotal.toFixed(2)}</span>
+                <strong>₹{finalTotal.toFixed(2)}</strong>
               </div>
             </div>
           </div>

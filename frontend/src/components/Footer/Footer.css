@@ -3,12 +3,13 @@
    ========================================================== */
 
 .footer-area {
+  width: 100%;
+  margin-top: 40px;
   background-color: #101b1a; /* Dark premium healthcare tone */
   color: #e2e8f0;
   padding: 70px 0 28px;
   border-top: 4px solid var(--primary, #0f766e);
   position: relative;
-  overflow: hidden;
 }
 
 .footer-container {
@@ -387,7 +388,7 @@
 /* Mobile Devices (max 767px) */
 @media (max-width: 767px) {
   .footer-area {
-    padding: 55px 0 24px;
+    padding: 24px 16px;
   }
 
   .footer-top {
