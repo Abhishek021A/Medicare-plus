@@ -38,6 +38,8 @@ class CategoryController {
                     } else {
                         $this->getCategoryBySlug($this->id);
                     }
+                } else if (isset($_GET['parent_id'])) {
+                    $this->getSubcategories($_GET['parent_id']);
                 } else {
                     // If isAdmin, fetch all data for dashboard, otherwise just active ones
                     $this->getCategories($isAdmin);
@@ -83,6 +85,17 @@ class CategoryController {
             }
         }
         echo json_encode(["success" => true, "data" => $categories]);
+    }
+
+    private function getSubcategories($parent_id) {
+        $stmt = $this->category->readByParentId($parent_id);
+        $subcategories = [];
+        if ($stmt) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $subcategories[] = $row;
+            }
+        }
+        echo json_encode(["success" => true, "data" => $subcategories]);
     }
 
     private function getCategory($id) {

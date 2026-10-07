@@ -905,11 +905,17 @@
     display: block;
   }
   .header-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     gap: 15px;
+    align-items: center;
+    width: 100%;
   }
   .premium-brand-logo {
-    flex: 1;
+    display: flex;
     justify-content: center;
+    margin: 0 auto;
+    width: 100%;
   }
   .mobile-search-row {
     display: block;
@@ -919,5 +925,22 @@
   }
   .top-bar-right {
     display: none;
+  }
+  .top-bar-left {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    text-align: center;
+  }
+  .header-actions-wrapper {
+    gap: 10px;
+    margin-left: auto;
+  }
+  .brand-title {
+    font-size: 1.2rem;
+  }
+  .brand-subtitle {
+    font-size: 0.75rem;
   }
 }

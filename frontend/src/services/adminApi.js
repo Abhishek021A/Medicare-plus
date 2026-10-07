@@ -95,6 +95,11 @@ export const adminCategoryService = {
     const response = await adminApi.get('/categories', { params });
     return response.data;
   },
+
+  getSubcategories: async (parentId) => {
+    const response = await adminApi.get('/subcategories', { params: { parent_id: parentId } });
+    return response.data;
+  },
   
   getCategory: async (id) => {
     const response = await adminApi.get(`/categories/${id}`);

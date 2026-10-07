@@ -205,6 +205,20 @@ class ProductController {
             if ($this->db === null) {
                 throw new Exception("Database connection failed. Please ensure MySQL is running.");
             }
+
+            // Validate subcategory belongs to category
+            if (!empty($this->product->subcategory_id) && !empty($this->product->category_id)) {
+                $checkStmt = $this->db->prepare("SELECT id FROM categories WHERE id = :sub_id AND parent_id = :cat_id AND status = 'ACTIVE'");
+                $checkStmt->bindParam(':sub_id', $this->product->subcategory_id);
+                $checkStmt->bindParam(':cat_id', $this->product->category_id);
+                $checkStmt->execute();
+                if ($checkStmt->rowCount() === 0) {
+                    http_response_code(400);
+                    echo json_encode(["success" => false, "message" => "Invalid subcategory for selected category."]);
+                    return;
+                }
+            }
+
             $this->db->beginTransaction();
 
             $image_url = $this->handleImageUpload('image');
@@ -256,6 +270,20 @@ class ProductController {
             if ($this->db === null) {
                 throw new Exception("Database connection failed. Please ensure MySQL is running.");
             }
+
+            // Validate subcategory belongs to category
+            if (!empty($this->product->subcategory_id) && !empty($this->product->category_id)) {
+                $checkStmt = $this->db->prepare("SELECT id FROM categories WHERE id = :sub_id AND parent_id = :cat_id AND status = 'ACTIVE'");
+                $checkStmt->bindParam(':sub_id', $this->product->subcategory_id);
+                $checkStmt->bindParam(':cat_id', $this->product->category_id);
+                $checkStmt->execute();
+                if ($checkStmt->rowCount() === 0) {
+                    http_response_code(400);
+                    echo json_encode(["success" => false, "message" => "Invalid subcategory for selected category."]);
+                    return;
+                }
+            }
+
             $this->db->beginTransaction();
 
             $image_url = $this->handleImageUpload('image');

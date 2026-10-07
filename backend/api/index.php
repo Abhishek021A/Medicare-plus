@@ -61,6 +61,11 @@ switch ($resource) {
         $controller = new CategoryController($method, $id);
         $controller->processRequest();
         break;
+    case 'subcategories':
+        require_once '../controllers/CategoryController.php';
+        $controller = new CategoryController($method, $id, 'subcategories');
+        $controller->processRequest();
+        break;
     case 'brands':
         require_once '../controllers/BrandController.php';
         $controller = new BrandController($method, $id);

@@ -32,6 +32,18 @@ class Category {
         return $stmt;
     }
 
+    public function readByParentId($parent_id) {
+        $query = "SELECT id, name, slug, image, parent_id, sort_order 
+                  FROM " . $this->table_name . " 
+                  WHERE parent_id = :parent_id 
+                  AND status = 'ACTIVE' 
+                  ORDER BY sort_order ASC, name ASC";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":parent_id", $parent_id);
+        $stmt->execute();
+        return $stmt;
+    }
+
     // New method for Admin Dashboard
     public function readAllAdmin() {
         // Returns all categories, with parent names and product counts

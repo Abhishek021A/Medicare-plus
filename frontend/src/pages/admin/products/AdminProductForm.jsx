@@ -3,6 +3,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Save, Loader2, Upload, X } from 'lucide-react';
 import { adminProductService, adminCategoryService, adminBrandService } from '../../../services/adminApi';
 import { useToast } from '../../../context/ToastContext';
+import CustomSelect from '../../../components/CustomSelect/CustomSelect';
 import './AdminProducts.css';
 
 export default function AdminProductForm() {
@@ -14,6 +15,8 @@ export default function AdminProductForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [categories, setCategories] = useState([]);
   const [brands, setBrands] = useState([]);
+  const [subcategories, setSubcategories] = useState([]);
+  const [isSubcategoriesLoading, setIsSubcategoriesLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -52,6 +55,15 @@ export default function AdminProductForm() {
     }
   }, [id]);
 
+  // Fetch subcategories when category changes
+  useEffect(() => {
+    if (formData.category_id) {
+      fetchSubcategories(formData.category_id);
+    } else {
+      setSubcategories([]);
+    }
+  }, [formData.category_id]);
+
   // Generate slug automatically from name if not edit mode
   useEffect(() => {
     if (!isEditMode && formData.name) {
@@ -71,6 +83,21 @@ export default function AdminProductForm() {
       }
     } catch (error) {
       console.error('Failed to load categories', error);
+    }
+  };
+
+  const fetchSubcategories = async (categoryId) => {
+    try {
+      setIsSubcategoriesLoading(true);
+      const response = await adminCategoryService.getSubcategories(categoryId);
+      if (response.success) {
+        setSubcategories(response.data || []);
+      }
+    } catch (error) {
+      console.error('Failed to load subcategories', error);
+      addToast('error', 'Unable to load subcategories');
+    } finally {
+      setIsSubcategoriesLoading(false);
     }
   };
 
@@ -111,10 +138,27 @@ export default function AdminProductForm() {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
+    
+    setFormData(prev => {
+      const updates = {
+        ...prev,
+        [name]: type === 'checkbox' ? checked : value
+      };
+      
+      // If category changes, clear subcategory
+      if (name === 'category_id' && prev.category_id != value) {
+        updates.subcategory_id = '';
+      }
+      
+      // If medicine_group_id changes, clear category and subcategory
+      if (name === 'medicine_group_id' && prev.medicine_group_id != value) {
+        updates.category_id = '';
+        updates.subcategory_id = '';
+      }
+      
+      return updates;
+    });
+
     // Clear error for this field
     if (formErrors[name]) {
       setFormErrors(prev => ({ ...prev, [name]: null }));
@@ -427,7 +471,7 @@ export default function AdminProductForm() {
           </div>
 
           {/* Categorization */}
-          <div className="admin-card mb-20 p-20">
+          <div className="admin-card mb-20 p-20" style={{ overflow: 'visible' }}>
             <h3 className="card-title">Organization</h3>
             <div className="form-group">
               <label>Medicine Group *</label>
@@ -461,19 +505,17 @@ export default function AdminProductForm() {
               {formErrors.category_id && <span className="error-text">{formErrors.category_id}</span>}
             </div>
             <div className="form-group mt-15">
-              <label>Subcategory</label>
-              <select 
+              <CustomSelect
+                label="Subcategory"
                 name="subcategory_id"
                 value={formData.subcategory_id}
+                options={subcategories}
                 onChange={handleChange}
-                className="form-input"
+                placeholder="Select Subcategory"
                 disabled={!formData.category_id}
-              >
-                <option value="">Select Subcategory</option>
-                {categories.filter(c => c.parent_id == formData.category_id).map(cat => (
-                  <option key={cat.id} value={cat.id}>{cat.name}</option>
-                ))}
-              </select>
+                loading={isSubcategoriesLoading}
+                emptyMessage={formData.category_id ? "This category does not have any active subcategories yet." : "Please select a category first"}
+              />
             </div>
             <div className="form-group mt-15">
               <label>Brand</label>

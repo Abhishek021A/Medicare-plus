@@ -11,6 +11,20 @@
   --danger: #ef4444;
 }
 
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  overflow-x: hidden;
+  background-color: var(--background);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,10 +32,43 @@
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-body {
-  background-color: var(--background);
-  color: var(--text-dark);
-  line-height: 1.6;
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1440px;
+  }
 }
 
 /* Utilities */
